@@ -1,15 +1,10 @@
-################################
-
-## ~~Projet Démo de Formation en Cobol~~
+## ~Projet Démo de Formation en Cobol~
 
 
 
 
 
 
+@Authors : 
 
-
-
-
-
-## Sources : (FromzZeroToCobol)[https://www.youtube.com/@fromzerotocobol6023] (Youtube)
+>    @Taumah
