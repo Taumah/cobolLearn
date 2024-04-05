@@ -15,6 +15,10 @@
        DISPLAY "Nombre a tester : ".
        ACCEPT WS-U-INPUT.
 
+       IF WS-U-INPUT <= 0 THEN
+           DISPLAY "Le nombre ne peut être négatif"
+           STOP RUN
+       END-IF
        
        PERFORM UNTIL DIVIDER >= WS-U-INPUT 
            DIVIDE WS-U-INPUT BY DIVIDER GIVING RESULT REMAINDER LEFT-DIV
