@@ -5,9 +5,9 @@
 
        DATA DIVISION.
 
-       WORKING-STORAGE SECTION  
+       WORKING-STORAGE SECTION.
        
-       01 DATE.
+       01 WS-DATE.
            02 YEAR PIC 9(4).
            02 MONTH PIC 9(2).
            02 DATE-DAY PIC 9(2).
@@ -23,7 +23,7 @@
        01 PROFIT-1 PIC ZZZ9. 
        01 PROFIT-2 PIC ***9.
 
-       01 PROFIT-3 PIC ZZZ9.9Z. 
+       01 PROFIT-3 PIC ZZZ9.99. 
 
        01 PROFIT-4 PIC 9999B9999B99.
 
@@ -32,14 +32,9 @@
            05 WS-COMP-V2 PIC 9(5)   COMP-3.
            05 WS-COMP-V3 PIC 9(3)V99  COMP-3.
 
-
-
-
        PROCEDURE DIVISION.
            MOVE -88 TO TEMPERATURE.
            DISPLAY TEMPERATURE.
-
-
        STOP RUN.
 
 
