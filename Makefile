@@ -1,5 +1,5 @@
 PROGRAM_NAME = cobolProj
-COBOLC = cobc -x
+COBOLC = cobc -o
 COBOL_SOURCES_DIR="src/cobol/"
 COBOL_SOURCES=""
 
@@ -19,7 +19,7 @@ exec: build run
 
 build:
 	@echo compiling...
-	@$(COBOLC) $(COBOL_SOURCES) -o $(OUTPUT_FILE_NAME)
+	@$(COBOLC) src/cobol/*/*.cbl
 	@echo done
 
 run:
@@ -27,10 +27,4 @@ run:
 	@./$(OUTPUT_FILE_NAME)
 
 clean:
-	@echo $1
-	@echo emptying binary directory ...
-	@rm -f $(BIN_DIR)/*
-	@echo done
-
-custom: $(COBOL_SOURCES)
-	$(COBOLC) $< -o $@
+	rm -f $(BIN_DIR)
