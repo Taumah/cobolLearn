@@ -69,3 +69,6 @@
 Authors : 
 
 >    @[Taumah](mailto:thomas.tresgots@consultants-solutec.fr)
+
+
+> [install DB2](https://www.ibm.com/docs/en/db2/11.5?topic=idds-installing-db2-database-servers-by-using-db2-setup-wizard-windows) 
