@@ -1,18 +1,19 @@
        IDENTIFICATION DIVISION. 
-       PROGRAM-ID. MAIN-ATM.
-       AUTHOR. Thomas.
+       PROGRAM-ID. MAIN.
 
        DATA DIVISION.
        WORKING-STORAGE SECTION.
 
        01 PIN PIC 9(4).
-           88 PIN-VALID VALUE 1234.
+           88 PIN-VALID VALUE 1234 2341 3412 4123 4321.
        
        01 MENU-CHOICE PIC 9 VALUE 0.
            88 MENU-CONSULT VALUE 1.
            88 MENU-DEPOSIT VALUE 2.
            88 MENU-WITHDRAW VALUE 3.
            88 MENU-LEAVE  VALUE 4.
+
+       01 PROGRAM-STATUS-CODE PIC 9(4).
 
        PROCEDURE DIVISION.
 
@@ -46,7 +47,10 @@
            EVALUATE TRUE
               WHEN MENU-CONSULT
                  DISPLAY "CONSULT"
-                 
+                 CALL "ConsultAccountFunction" USING BY REFERENCE PIN 
+                 PROGRAM-STATUS-CODE
+                 DISPLAY "Fin consultation, status : " 
+                 PROGRAM-STATUS-CODE 
               WHEN MENU-DEPOSIT
                  DISPLAY "Dépôt"
               WHEN MENU-WITHDRAW
@@ -63,3 +67,5 @@
            DISPLAY "Merci de faire affaires avec nous!".
            DISPLAY "Bonne journée".       
            
+
+           STOP RUN.
