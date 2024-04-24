@@ -1,5 +1,5 @@
        IDENTIFICATION DIVISION. 
-       PROGRAM-ID. ConsultAccountFunction.
+       PROGRAM-ID. IsUserValid.
 
        ENVIRONMENT DIVISION.
        INPUT-OUTPUT SECTION.
@@ -11,7 +11,7 @@
 
        FILE SECTION. 
        FD BANK-RECORDS
-           RECORD CONTAINS 31 CHARACTERS. 
+           RECORD CONTAINS 29 CHARACTERS. 
 
        01 BANK-RECORD.
            03 RCD-PIN PIC 9(4).
@@ -20,7 +20,7 @@
            03 FILLER PIC X.
            03 RCD-LAST-NAME PIC X(8).
            03 FILLER PIC X.
-           03 RCD-AMMOUNT PIC 9(4).99 .
+           03 RCD-AMMOUNT PIC 9(4)V99 .
 
        WORKING-STORAGE SECTION. 
 
@@ -38,6 +38,7 @@
 
            OPEN INPUT BANK-RECORDS .
 
+      *  Avoid headers.      
            READ BANK-RECORDS INTO  BANK-RECORD
            AT END MOVE 'E' TO RCD-EOF.
 
@@ -46,13 +47,15 @@
               AT END MOVE 'E' TO RCD-EOF
               NOT AT END
                  IF RCD-PIN = PIN THEN  
-                    DISPLAY "Vous possédez " RCD-AMMOUNT 
-                    "€ sur votre compte"
-                    
+                    DISPLAY "Bonjour " RCD-NAME
                     MOVE 'S' TO RCD-EOF
                     MOVE 0 TO STATUS-CODE  
                  END-IF 
            END-PERFORM.
 
            CLOSE BANK-RECORDS.
-       END PROGRAM ConsultAccountFunction.
+           
+
+       END PROGRAM IsUserValid.
+
+       
