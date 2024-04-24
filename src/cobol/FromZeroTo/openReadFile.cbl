@@ -5,7 +5,7 @@
        ENVIRONMENT DIVISION.
        INPUT-OUTPUT SECTION.
        FILE-CONTROL.
-           SELECT FILECSV ASSIGN TO './demo.csv'
+           SELECT FILECSV ASSIGN TO './demo.dat'
                ORGANIZATION IS LINE SEQUENTIAL.
 
        DATA DIVISION.

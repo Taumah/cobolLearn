@@ -23,7 +23,7 @@
 
        PROCEDURE DIVISION.
 
-       MOVE 'src/data/demo.csv' TO filename.
+       MOVE 'src/data/demo.dat' TO filename.
 
        DISPLAY 'size : ' file-size ' | file-date :' date-day month year.
 
