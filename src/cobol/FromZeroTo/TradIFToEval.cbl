@@ -37,23 +37,24 @@
            END-EVALUATE
 
 
-       EVALUATE STATUT
-           WHEN 'Celibataire'
-            EVALUATE AGE
-                WHEN > 30
-                   DISPLAY 'Celibataire et mature.'
-                WHEN OTHER 
-                   DISPLAY 'Celibataire et jeune.'
-
-           WHEN 'Marie'
-               EVALUATE AGE
-                   WHEN > 30
-                       DISPLAY 'Marie et mature.'
-                   WHEN OTHER 
-                       DISPLAY 'Marie et jeune.'
-           WHEN OTHER
-               DISPLAY 'Autres Statuts'
-        
-           END-EVALUATE
-       
-       STOP RUN.
+           EVALUATE STATUT
+               WHEN 'Celibataire'
+                EVALUATE AGE
+                    WHEN > 30
+                       DISPLAY 'Celibataire et mature.'
+                    WHEN OTHER 
+                       DISPLAY 'Celibataire et jeune.'
+    
+               WHEN 'Marie'
+                   EVALUATE AGE
+                       WHEN > 30
+                           DISPLAY 'Marie et mature.'
+                       WHEN OTHER 
+                           DISPLAY 'Marie et jeune.'
+               WHEN OTHER
+                   DISPLAY 'Autres Statuts'
+            
+               END-EVALUATE
+           
+           STOP RUN.
+    

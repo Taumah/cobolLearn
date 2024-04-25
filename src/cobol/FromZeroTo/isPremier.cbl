@@ -12,24 +12,25 @@
 
        PROCEDURE DIVISION.
 
-       DISPLAY "Nombre a tester : ".
-       ACCEPT WS-U-INPUT.
+           DISPLAY "Nombre a tester : ".
+           ACCEPT WS-U-INPUT.
 
-       IF WS-U-INPUT <= 0 THEN
-           DISPLAY "Le nombre ne peut être négatif"
-           STOP RUN
-       END-IF
+           IF WS-U-INPUT <= 0 THEN
+              DISPLAY "Le nombre ne peut être négatif"
+              STOP RUN
+           END-IF
        
-       PERFORM UNTIL DIVIDER >= WS-U-INPUT 
-           DIVIDE WS-U-INPUT BY DIVIDER GIVING RESULT REMAINDER LEFT-DIV
-           IF LEFT-DIV = 0 THEN
-               DISPLAY WS-U-INPUT " n'est pas un nombre premier"
-               DISPLAY "Premier diviseur trouvé : " DIVIDER
-               STOP RUN
+           PERFORM UNTIL DIVIDER >= WS-U-INPUT 
+              DIVIDE WS-U-INPUT BY DIVIDER GIVING RESULT 
+                 REMAINDER LEFT-DIV
+              IF LEFT-DIV = 0 THEN
+                 DISPLAY WS-U-INPUT " n'est pas un nombre premier"
+                 DISPLAY "Premier diviseur trouvé : " DIVIDER
+                 STOP RUN
            END-IF
            
            ADD 1 TO DIVIDER
-       END-PERFORM
+           END-PERFORM
 
 
        IF DIVIDER = WS-U-INPUT THEN

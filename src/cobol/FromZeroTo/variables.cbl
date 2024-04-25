@@ -24,6 +24,7 @@
        01 PROFIT-2 PIC ***9.
 
        01 PROFIT-3 PIC ZZZ9.99. 
+       01 PROFIT-3BIS PIC 9(4)V99.
 
        01 PROFIT-4 PIC 9999B9999B99.
 
@@ -35,7 +36,13 @@
        PROCEDURE DIVISION.
            MOVE -88 TO TEMPERATURE.
            DISPLAY TEMPERATURE.
-       STOP RUN.
+
+           MOVE 48.5 TO PROFIT-3BIS.
+
+           ADD 0.1 TO PROFIT-3BIS.
+           DISPLAY PROFIT-3BIS .
+
+           STOP RUN.
 
 
        

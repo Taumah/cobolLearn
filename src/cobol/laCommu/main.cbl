@@ -5,4 +5,4 @@
 
        PROCEDURE DIVISION.
 
-       CALL "screens".
+       CALL "LearnScreens".

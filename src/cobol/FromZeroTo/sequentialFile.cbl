@@ -2,23 +2,29 @@
        PROGRAM-ID. EmployeeFileExample.
 
        ENVIRONMENT DIVISION.
+       CONFIGURATION SECTION. 
+       SPECIAL-NAMES. 
+           DECIMAL-POINT IS COMMA.
        INPUT-OUTPUT SECTION.
        FILE-CONTROL.
-          SELECT EmployeeFile ASSIGN TO 'src/data/employee.dat'
+           SELECT EmployeeFile ASSIGN TO '../../data/demo.dat'
               ORGANIZATION IS LINE SEQUENTIAL.
 
        
        DATA DIVISION.
        FILE SECTION.
+
        FD EmployeeFile.
        01 EmployeeRecord.
-           05 EmployeeName     PIC X(15).
-           05 EmployeeNumber   PIC 9(6).
-           05 FILLER           PIC X(2).
-           05 EmployeeSalary.
-               06 INT-PART     PIC 9(4).
-               06 FILLER       PIC x.
-               06 DEC-PART     PIC v99.
+           05 EmployeeID     PIC 9(4).
+           05 FILLER           PIC X.
+           05 EmployeeName   PIC X(7).
+           05 FILLER           PIC X.
+           05 EmployeeLastName PIC X(8).
+           05 FILLER           PIC X.
+           05 EmployeeAmmount PIC 9(4)V99.
+
+           
       *   05 EmpSalaryAsDecimal REDEFINES EmployeeSalary PIC 9(4)V99. 
 
 
@@ -29,22 +35,29 @@
        PROCEDURE DIVISION.
        MAIN-PROGRAM.
            OPEN INPUT EmployeeFile.
+           
+           READ EmployeeFile INTO EmployeeRecord
+           AT END
+               SET EOF TO 1
+           END-READ.
            PERFORM READ-EMPLOYEES UNTIL EOF = 1.
            CLOSE EmployeeFile.
            STOP RUN.
 
        READ-EMPLOYEES.
+      *    Lecture des headers     
            READ EmployeeFile INTO EmployeeRecord
            AT END
                SET EOF TO 1
            NOT AT END
-           DISPLAY 'Employee Name: ' EmployeeName
-                      ' Employee Number: ' EmployeeNumber
-                      ' Employee Salary: ' INT-PART DEC-PART
-              ADD 1 TO INT-PART
-      *       ADD 1 TO EmployeeNumber
-               
-           DISPLAY 'Employee Name: ' EmployeeName
-                      ' Employee Number: ' EmployeeNumber
-                      ' Employee Salary: ' INT-PART DEC-PART 
-           Display ' '.
+              DISPLAY 'Employee Name: ' EmployeeName 
+              ' ' EmployeeLastName 
+                         ' Employee Number: ' EmployeeID 
+                         ' Employee Salary: ' EmployeeAmmount 
+                 ADD 1 TO EmployeeAmmount 
+                  
+              DISPLAY 'Employee Name: ' EmployeeName 
+              ' ' EmployeeLastName 
+                         ' Employee Number: ' EmployeeID 
+                         ' Employee Salary: ' EmployeeAmmount
+           END-READ.
